@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_octane_api
+    ports:
+      - "8080:8080"
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+    volumes:
+      - .:/var/www
+    networks:
+      - my_network
+    restart: unless-stopped
