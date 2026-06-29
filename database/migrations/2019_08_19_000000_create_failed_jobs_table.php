@@ -15,6 +15,7 @@ class CreateFailedJobsTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('g_number')->nullable();
             $table->string('product_name');
             $table->integer('quantity');
             $table->integer('price');
@@ -23,6 +24,7 @@ class CreateFailedJobsTable extends Migration
 
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
+            $table->string('sale_id')->unique();
             $table->string('product_name');
             $table->integer('quantity');
             $table->integer('price');
@@ -32,6 +34,7 @@ class CreateFailedJobsTable extends Migration
 
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
+             $table->string('income_id')->nullable();
             $table->string('source');
             $table->integer('price');
             $table->timestamps();
